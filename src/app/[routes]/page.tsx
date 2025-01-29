@@ -11,6 +11,10 @@ type Props = {
 export default async function Category({ params }: Props) {
   const { routes } = await params;
   const content = await readContentFromFile(routes);
+  if (!content) {
+    return <div>Content not found</div>;
+  }
+
   const mdxSource = await serialize(content, { parseFrontmatter: true });
 
   return (
