@@ -7,7 +7,6 @@ import {
 
 export default function Breadcrumbs() {
   const segments = useSelectedLayoutSegments();
-  const segment = useSelectedLayoutSegment();
 
   return (
     <nav aria-label="breadcrumb">
@@ -46,7 +45,7 @@ const BreadcrumbItem = ({
       {isLast ? (
         <span>{label}</span>
       ) : (
-        <a href={link} className="text-blue-600 hover:text-blue-800">
+        <a href={link} className="text-rose-600 hover:text-slate-800">
           {label}
         </a>
       )}

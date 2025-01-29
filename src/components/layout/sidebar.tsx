@@ -12,7 +12,7 @@ export default async function Sidebar() {
 
       <div className="flex flex-col gap-2 mt-4 p-2">
         {routes.map((category) => (
-          <NavItem key={category.id} route={category} />
+          <NavItem parentRoute="" key={category.id} route={category} />
         ))}
       </div>
     </div>

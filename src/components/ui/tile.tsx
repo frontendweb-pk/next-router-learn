@@ -1,5 +1,6 @@
 import { Subcategory } from "@/types";
 import Link from "next/link";
+import { NavItem } from "./nav-item";
 
 export default function Tile({
   item,
@@ -8,7 +9,11 @@ export default function Tile({
   item: Subcategory;
   parent: string;
 }) {
-  return (
+  return <NavItem parentRoute={parent} route={item} />;
+}
+
+/**
+ * (
     <Link
       href={`/${parent}${item.path}`}
       className="bg-white rounded-md border border-gray-200 shadow-sm p-4"
@@ -17,4 +22,4 @@ export default function Tile({
       <p className="text-gray-600">{item.description}</p>
     </Link>
   );
-}
+ */

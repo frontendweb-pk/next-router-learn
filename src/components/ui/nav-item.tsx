@@ -10,16 +10,16 @@ export type NavItemProps = {
 };
 export function NavItem({ route, parentRoute }: NavItemProps) {
   const pathname = usePathname();
-
+  console.log(pathname, route.path);
   return (
     <Link
       className={clsx(
         "flex rounded-md p-2 hover:text-white hover:bg-slate-700 text-sm items-center gap-2",
         {
-          "bg-slate-700": pathname == route.path,
+          "bg-slate-700": pathname.includes(route.path),
         }
       )}
-      href={route.path}
+      href={`${parentRoute}${route.path}`}
     >
       <Component size={14} /> {route.name}
     </Link>
