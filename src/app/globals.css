@@ -5,6 +5,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  
 }
 
 @media (prefers-color-scheme: dark) {
@@ -18,4 +19,17 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+pre{
+ margin-bottom: 5px;
+ padding: 10px;
+  background: var(--background);
+}
+
+pre > code {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.9em;
+  line-height: 1.5;
+  padding: 0.5em;
 }
