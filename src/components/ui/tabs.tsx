@@ -1,5 +1,4 @@
 import { Subcategory } from "@/types";
-import Link from "next/link";
 import { NavItem } from "./nav-item";
 
 type TabsProps = {
@@ -10,7 +9,7 @@ export default function Tabs({ root = "/", tabs }: TabsProps) {
   return (
     <div className="flex flex-row gap-4">
       {tabs.map((tab) => (
-        <NavItem parentRoute={root} route={tab} />
+        <NavItem key={tab.id} parentRoute={root} route={tab} />
       ))}
     </div>
   );

@@ -1,25 +1,36 @@
 "use client";
 import { Category } from "@/types";
 import { Component } from "lucide-react";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Link, { LinkProps } from "next/link";
 import clsx from "clsx";
-export type NavItemProps = {
-  route: Category;
-  parentRoute?: string;
-};
-export function NavItem({ route, parentRoute }: NavItemProps) {
+
+export type NavItemProps = Omit<LinkProps, "href"> &
+  React.AnchorHTMLAttributes<HTMLAnchorElement> & {
+    route: Category;
+    parentRoute?: string;
+  };
+export function NavItem({
+  route,
+  parentRoute,
+  className,
+  ...rest
+}: NavItemProps) {
   const pathname = usePathname();
-  console.log(pathname, route.path);
+
+  const url = parentRoute ? `/${parentRoute}${route.path}` : route.path;
+
   return (
     <Link
       className={clsx(
         "flex rounded-md p-2 hover:text-white hover:bg-slate-700 text-sm items-center gap-2",
         {
-          "bg-slate-700": pathname.includes(route.path),
-        }
+          "bg-slate-700 text-white": pathname.includes(url),
+        },
+        className
       )}
-      href={`${parentRoute}${route.path}`}
+      href={url}
+      {...rest}
     >
       <Component size={14} /> {route.name}
     </Link>
