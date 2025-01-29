@@ -9,6 +9,8 @@ export default async function Category({ params }: Props) {
   const { routes } = await params;
   const { default: Component } = await import(`@/content/${routes}.mdx`);
 
+  await new Promise((res) => setTimeout(res, 1000)); // slow loading for 1 second
+
   return (
     <div className="gap-4">
       <Component />
