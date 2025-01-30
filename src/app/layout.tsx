@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Sidebar from "@/components/layout/sidebar";
 import PageTitle from "@/components/ui/page-title";
+import GlobalSearch from "@/components/common/global-search";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,6 +33,7 @@ export default function RootLayout({
         <div className="flex min-h-screen flex-row ">
           <Sidebar />
           <main className="flex-1 p-4">
+            <GlobalSearch />
             <PageTitle />
             {children}
           </main>

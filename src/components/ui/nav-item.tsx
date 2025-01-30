@@ -1,7 +1,7 @@
 "use client";
 import { Category } from "@/types";
 import { Component } from "lucide-react";
-import { usePathname } from "next/navigation";
+import { usePathname, useSelectedLayoutSegment } from "next/navigation";
 import Link, { LinkProps } from "next/link";
 import clsx from "clsx";
 
@@ -17,8 +17,9 @@ export function NavItem({
   ...rest
 }: NavItemProps) {
   const pathname = usePathname();
-
+  const segment = useSelectedLayoutSegment();
   const url = parentRoute ? `/${parentRoute}${route.path}` : route.path;
+  const isActive = route.path === segment;
 
   return (
     <Link

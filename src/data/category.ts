@@ -79,10 +79,10 @@ export const subcategory: Subcategory[] = [
     image: "image",
   },
   {
-    id: 7,
+    id: 8,
     category: "authentication",
-    name: "Authentication",
-    path: "/authentication",
+    name: "Session Management",
+    path: "/session",
     description: "loreum ipsum",
     code: "code",
     image: "image",
